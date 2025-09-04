@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Result Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #4a6cf7;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #354ac0;
+    }
+    .result-box, .error-box {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+    .result-box {
+      background: #eafbe7;
+      color: #2d6a4f;
+    }
+    .error-box {
+      background: #ffe5e5;
+      color: #b00020;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Student Result Portal</h2>
+    <input type="text" id="roll" placeholder="Enter Roll Number" required>
+    <button onclick="checkResult()">Check Result</button>
+
+    <div class="result-box" id="resultBox">
+      <h3>Result</h3>
+      <p><strong>Name:</strong> Sudharshini SV</p>
+      <p><strong>Roll No:</strong> 4411</p>
+      <p><strong>Percentage:</strong> 93%</p>
+      <p><strong>Mentor:</strong> Divya Darshini</p>
+      <p><strong>Place:</strong> Tambaram</p>
+    </div>
+
+    <div class="error-box" id="errorBox">
+      <p>❌ No such student found.</p>
+    </div>
+  </div>
+
+  <script>
+    function checkResult() {
+      const roll = document.getElementById("roll").value;
+      const resultBox = document.getElementById("resultBox");
+      const errorBox = document.getElementById("errorBox");
+
+      if (roll === "4411") {
+        resultBox.style.display = "block";
+        errorBox.style.display = "none";
+      } else {
+        errorBox.style.display = "block";
+        resultBox.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
